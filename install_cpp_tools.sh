@@ -47,6 +47,8 @@ install_dev_tools() {
   brew install openssl
   brew install sqlite
   brew install pkg-config
+  brew install opencv   
+  brew install glew 
 
   echo "Development tools have been successfully installed."
 }
@@ -63,10 +65,28 @@ install_additional_utils() {
   echo "Additional utilities have been successfully installed."
 }
 
+# Function to check if a library is installed
+check_library() {
+  local lib_name=$1
+  local pkg_name=$2
+  echo "Checking for $lib_name..."
+  if brew list --versions $pkg_name &> /dev/null; then
+    echo "$lib_name is already installed."
+  else
+    echo "$lib_name is not installed. Installing..."
+    brew install $pkg_name
+    echo "$lib_name has been successfully installed."
+  fi
+}
+
 # Install all dependencies
 install_homebrew
 install_xcode_command_line_tools
 install_dev_tools
 install_additional_utils
+
+# Check and install additional libraries
+check_library "OpenCV" "opencv"
+check_library "OpenGL" "glew"
 
 echo "All C++ development tools and dependencies have been successfully installed!"
