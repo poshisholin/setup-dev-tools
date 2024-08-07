@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Установите необходимые инструменты и библиотеки для разработки на C++.
+# Install necessary tools and libraries for C++ development.
 
-# Функция для установки Homebrew
+# Function to install Homebrew
 install_homebrew() {
   echo "Checking for Homebrew..."
   if ! command -v brew &> /dev/null; then
@@ -14,7 +14,7 @@ install_homebrew() {
   fi
 }
 
-# Функция для установки Xcode Command Line Tools
+# Function to install Xcode Command Line Tools
 install_xcode_command_line_tools() {
   echo "Checking for Xcode Command Line Tools..."
   if ! xcode-select --print-path &> /dev/null; then
@@ -26,7 +26,7 @@ install_xcode_command_line_tools() {
   fi
 }
 
-# Функция для установки основных инструментов разработки
+# Function to install core development tools
 install_dev_tools() {
   echo "Updating Homebrew..."
   brew update
@@ -35,35 +35,35 @@ install_dev_tools() {
   brew upgrade
 
   echo "Installing development tools..."
-  brew install cmake        # Система сборки CMake
-  brew install clang        # Компилятор Clang (входит в LLVM)
-  brew install llvm         # Установка LLVM
-  brew install gcc          # Компилятор GCC
-  brew install make         # Утилита сборки Make
-  brew install gdb          # Отладчик GDB
-  brew install boost        # Библиотека Boost
-  brew install fmt          # Библиотека fmt
-  brew install libxml2      # Библиотека XML
-  brew install openssl      # Библиотека OpenSSL
-  brew install sqlite       # Библиотека SQLite
-  brew install pkg-config   # Утилита pkg-config для обнаружения библиотек
+  brew install cmake
+  brew install clang
+  brew install llvm
+  brew install gcc
+  brew install make
+  brew install gdb
+  brew install boost
+  brew install fmt
+  brew install libxml2
+  brew install openssl
+  brew install sqlite
+  brew install pkg-config
 
   echo "Development tools have been successfully installed."
 }
 
-# Функция для проверки и установки дополнительных утилит
+# Function to install additional utilities
 install_additional_utils() {
   echo "Installing additional utilities..."
-  brew install git          # Система контроля версий Git
-  brew install wget         # Утилита для загрузки файлов из интернета
-  brew install curl         # Инструмент для работы с URL
-  brew install ninja        # Система сборки Ninja
-  brew install doxygen      # Инструмент для генерации документации
+  brew install git
+  brew install wget
+  brew install curl
+  brew install ninja
+  brew install doxygen
 
   echo "Additional utilities have been successfully installed."
 }
 
-# Установка всех зависимостей
+# Install all dependencies
 install_homebrew
 install_xcode_command_line_tools
 install_dev_tools
